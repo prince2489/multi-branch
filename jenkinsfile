@@ -1,9 +1,14 @@
 pipeline {
     agent any
     options {
-        pipelineTriggers([
-            pollSCM('* * * * *')
-        ])
+        buildDiscarder(logRotator(numToKeepStr: '10'))
+        disableConcurrentBuilds()
+        timeout(time: 1, unit: 'HOURS')
+        // Add any other options you need
+    }
+    
+    triggers {
+        pollSCM('* * * * *')
     }
 
     stages {
