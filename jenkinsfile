@@ -1,5 +1,13 @@
 pipeline {
     agent any
+    properties(
+        [
+            pipelineTriggers(
+                [pollSCM('* * * * *')]
+            )
+            ]
+            )
+
 
     stages {
         stage('Hello World') {
