@@ -1,7 +1,10 @@
 pipeline {
     agent any
-properties([pipelineTriggers([pollSCM('* * * * *')])])
-
+    options {
+        pipelineTriggers([
+            pollSCM('* * * * *')
+        ])
+    }
 
     stages {
         stage('Hello World') {
