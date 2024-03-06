@@ -1,15 +1,15 @@
 pipeline {
     agent any
-    options {
-        buildDiscarder(logRotator(numToKeepStr: '10'))
-        disableConcurrentBuilds()
-        timeout(time: 1, unit: 'HOURS')
-        // Add any other options you need
-    }
+    // options {
+    //     buildDiscarder(logRotator(numToKeepStr: '10'))
+    //     disableConcurrentBuilds()
+    //     timeout(time: 1, unit: 'HOURS')
+    //     // Add any other options you need
+    // }
     
-    triggers {
-        pollSCM('* * * * *')
-    }
+    // triggers {
+    //     pollSCM('* * * * *')
+    // }
 
     stages {
         stage('Hello World') {
